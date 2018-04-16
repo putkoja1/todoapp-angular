@@ -1,0 +1,20 @@
+mongo:
+    image: mongo:3.6.2
+    ports:
+        - "27017:27017"
+
+api:
+    image: github.com/putkoja1/todoapp
+    links:
+        - mongo
+    environment:
+        - MONGODB_URL=mongodb://mongo:27017/todoapp
+        - APP_URL=http://18.196.188.140
+    ports:
+        - "3000:3000"
+    restart: "on-failure:10"
+
+app:
+    image: github.com/putkoja1/todoapp-angular
+    ports: 
+        - "80:80"
