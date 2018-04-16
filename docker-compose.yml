@@ -4,7 +4,7 @@ mongo:
         - "27017:27017"
 
 api:
-    image: github.com/putkoja1/todoapp
+    image: https://github.com/nomanHasan/todo-api
     links:
         - mongo
     environment:
@@ -15,6 +15,6 @@ api:
     restart: "on-failure:10"
 
 app:
-    image: github.com/putkoja1/todoapp-angular
+    image: https://github.com/nomanHasan/todoapp-angular
     ports: 
         - "80:80"
